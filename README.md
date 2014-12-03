@@ -1,5 +1,6 @@
-pyslaquery - A simple wrapper for querying (and posting) messages from Slack channels.
+pyslaquery
 ==========
+A simple wrapper for querying (and posting) messages from Slack channels.
 
 The wrapper's sole purpose is to query the Slack API and get latest messages in a channel.
 

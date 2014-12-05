@@ -21,11 +21,15 @@ class RequestsHelper(object):
         result = requests.post(url, data=params, verify=False)
 
         if not result.json()['ok']:
-            raise pyslaquery_exceptions.SlackAPIError(result['error'])
+            raise pyslaquery_exceptions.SlackAPIError(result.json()['error'])
+
+        return result
 
     def create_get_request(self, method, params):
         url = "%s/%s" % (self.base, method)
         result = requests.post(url, data=params, verify=False)
 
         if not result.json()['ok']:
-            raise pyslaquery_exceptions.SlackAPIError(result['error'])
+            raise pyslaquery_exceptions.SlackAPIError(result.json()['error'])
+
+        return result

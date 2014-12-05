@@ -15,7 +15,7 @@ or
 	
 ## Example of usage
 
-## Basic search
+### Basic search
 
 Get latest messages from the channel `#general`
 
@@ -46,6 +46,27 @@ messages = client.get_messages_for_channel('breaking-news')
 	"has_more": false
 	}
 	
+#### Search options
+
+You can limit how many messages you get:
+
+    >>> client.get_messages_for_channel('breaking-news', limit=1)
+
+You can include messages with subtype (messages like when a user joined the channel etc.)
+
+    >>> client.get_messages_for_channel('breaking-news', limit=1, no_subtypes=False)
+
+### List Channels
+
+You can easily list your channels:
+
+    >>> client.get_channel_list
+    
+You can easily get informations about a channel:
+
+    >>> client.get_channel_info("general")
+
+
 ## Exceptions 
 
 List of exceptions that the wrapper can raise

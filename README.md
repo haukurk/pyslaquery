@@ -1,11 +1,9 @@
 pyslaquery
 ==========
-A simple wrapper for querying messages from Slack channels.
-
-The wrapper's sole purpose is to query the Slack API and get latest messages in a channel.
+A simple wrapper for querying messages, channels and other information from Slack channels.
 
 
-The API is located at https://api.slack.com
+The API is located at https://slack.com/api
 
 ## Installation
 
@@ -17,11 +15,18 @@ or
 	
 ## Example of usage
 
+### Basic search
+
 Get latest messages from the channel `#general`
+
+from pyslaquery import SlackQueryClient
+client = SlackQueryClient('xoxp-3137381152-3137381170-3136966963-ac68cc')
+messages = client.get_messages_for_channel('breaking-news')
+
 
 	>>> from pyslaquery import SlackQueryClient
 	>>> client = SlackQueryClient('Authorization Token')
-	>>> client.get_latest_messages('general')
+	>>> client.get_messages_for_channel('breaking-news')
 	{
 	"ok": true,
 	"messages": [
@@ -41,6 +46,27 @@ Get latest messages from the channel `#general`
 	"has_more": false
 	}
 	
+#### Search options
+
+You can limit how many messages you get:
+
+    >>> client.get_messages_for_channel('breaking-news', limit=1)
+
+You can include messages with subtype (messages like when a user joined the channel etc.)
+
+    >>> client.get_messages_for_channel('breaking-news', limit=1, no_subtypes=False)
+
+### List Channels
+
+You can easily list your channels:
+
+    >>> client.get_channel_list
+    
+You can easily get informations about a channel:
+
+    >>> client.get_channel_info("general")
+
+
 ## Exceptions 
 
 List of exceptions that the wrapper can raise

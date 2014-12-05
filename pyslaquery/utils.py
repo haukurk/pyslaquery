@@ -1,35 +1,22 @@
-import requests
-from pyslaquery import exception as pyslaquery_exceptions
-
-
-class RequestsHelper(object):
+def find_channel_id(channels, req_channel):
     """
-    Logic abstraction around requests module.
+    Find channel ID from a human readable name.
+    :param req_channel: channel name
+    :return: channel id string.
     """
+    for channel in channels:
+        if channel["name"] == req_channel:
+            return channel["id"]
 
-    def __init__(self, base):
-        self.base = base
 
-    def create_post_request(self, method, params):
-        """
-        Create POST request to the Slack API
-        :param method: Slack API method
-        :param params: params to include with the request
-        :return: requests.Response object
-        """
-        url = "%s/%s" % (self.base, method)
-        result = requests.post(url, data=params, verify=False)
-
-        if not result.json()['ok']:
-            raise pyslaquery_exceptions.SlackAPIError(result.json()['error'])
-
-        return result
-
-    def create_get_request(self, method, params):
-        url = "%s/%s" % (self.base, method)
-        result = requests.post(url, data=params, verify=False)
-
-        if not result.json()['ok']:
-            raise pyslaquery_exceptions.SlackAPIError(result.json()['error'])
-
-        return result
+def filter_out_message_subtypes(messages):
+    """
+    Filter out all message that have subtype. Only plain messages by users are used.
+    :param messages: total messages
+    :return: list of messages
+    """
+    filtered_messages = []
+    for message in messages:
+        if "subtype" not in message:
+            filtered_messages.append(message)
+    return filtered_messages

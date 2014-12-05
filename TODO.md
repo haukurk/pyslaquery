@@ -6,3 +6,9 @@ Query
 
 Post
 * Add event handlers for logging to Slack.
+
+Tests
+* Write tests in general.
+
+Documentation
+* Simple documentation (Sphinx).

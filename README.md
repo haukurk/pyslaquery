@@ -30,24 +30,18 @@ messages = client.get_messages_for_channel('breaking-news')
 	>>> from pyslaquery import SlackQueryClient
 	>>> client = SlackQueryClient('Authorization Token')
 	>>> client.get_messages_for_channel('breaking-news')
-	{
-	"ok": true,
-	"messages": [
-		{
-		"type": "message",
-		"user": "U0341B750",
-		"text": "Test Message 1",
-		"ts": "1417641989.000009"
-		},
-		{
-		"type": "message",
-		"user": "U0341B750",
-		"text": "Test Message 2",
-		"ts": "1417641976.000008"
-		}
-	],
-	"has_more": false
-	}
+    {
+    "type": "message",
+    "user": "U0341B750",
+    "text": "Test Message 1",
+    "ts": "1417641989.000009"
+    },
+    {
+    "type": "message",
+    "user": "U0341B750",
+    "text": "Test Message 2",
+    "ts": "1417641976.000008"
+    }
 	
 #### Search options
 

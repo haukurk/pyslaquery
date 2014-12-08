@@ -20,7 +20,7 @@ or
 
 ### Basic search
 
-Get latest messages from the channel `#general`
+Get latest messages from the channel `#breaking-news`
 
 	>>> from pyslaquery import SlackQueryClient
 	>>> client = SlackQueryClient('Authorization Token')

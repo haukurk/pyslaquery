@@ -25,7 +25,7 @@ Get latest messages from the channel `#breaking-news`
 	>>> from pyslaquery import SlackQueryClient
 	>>> client = SlackQueryClient('Authorization Token')
 	>>> client.get_messages_for_channel('breaking-news')
-    {
+    [{
     "type": "message",
     "user": "U0341B750",
     "text": "Test Message 1",
@@ -36,7 +36,7 @@ Get latest messages from the channel `#breaking-news`
     "user": "U0341B750",
     "text": "Test Message 2",
     "ts": "1417641976.000008"
-    }
+    }]
 	
 #### Search options
 
@@ -56,7 +56,7 @@ You can resolve user id's.
 
 List your channels:
 
-    >>> client.get_channel_list
+    >>> client.get_channel_list()
     
 Query informations about a channel:
 

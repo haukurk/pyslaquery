@@ -1,6 +1,6 @@
 pyslaquery
 ==========
-A really simple wrapper around Slack API, for querying and from Slack Channels.
+A really simple wrapper around Slack API, for querying information from Slack channels and users.
 
 
 *tags: query, Slack API, python.

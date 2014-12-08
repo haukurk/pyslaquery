@@ -9,6 +9,3 @@ Post
 
 Tests
 * Write tests in general.
-
-Documentation
-* Simple documentation (Sphinx).

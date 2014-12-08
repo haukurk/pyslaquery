@@ -22,11 +22,6 @@ or
 
 Get latest messages from the channel `#general`
 
-from pyslaquery import SlackQueryClient
-client = SlackQueryClient('xoxp-3137381152-3137381170-3136966963-ac68cc')
-messages = client.get_messages_for_channel('breaking-news')
-
-
 	>>> from pyslaquery import SlackQueryClient
 	>>> client = SlackQueryClient('Authorization Token')
 	>>> client.get_messages_for_channel('breaking-news')
@@ -53,7 +48,7 @@ You can include messages with subtype (messages like when a user joined the chan
 
     >>> client.get_messages_for_channel('breaking-news', limit=1, no_subtypes=False)
     
-You can resolve user id's of the user object.
+You can resolve user id's.
 
     >>> client.get_messages_for_channel('breaking-news', resolve_usernames=True)
 

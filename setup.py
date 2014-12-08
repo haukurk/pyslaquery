@@ -8,4 +8,8 @@ setup(
     author_email="haukur@hauxi.is",
     packages=["pyslaquery"],
     install_requires=["requests"],
+	url = 'https://github.com/haukurk/pyslaquery',
+	download_url = 'https://github.com/peterldowns/mypackage/tarball/0.1', # I'll explain this in a second
+	keywords = ['slack', 'channels', 'query'], # arbitrary keywords
+	classifiers = [],
 )

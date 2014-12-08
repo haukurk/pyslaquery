@@ -23,7 +23,7 @@ class SlackQueryClient(SlackBase):
         :param no_subtypes: Show only plain messages, no messages with subtypes.
         :param count: Limit number of showned messages
         :param params: extra parameters to send with the request to the Slack API.
-        return: dict object from the Slack API.
+        return: dict object of channels from the Slack API.
         """
         method = 'channels.history'
 
@@ -46,11 +46,11 @@ class SlackQueryClient(SlackBase):
                 channel_response["messages"] = filter_out_message_subtypes(channel_response["messages"])
             # Resolve username ids to user NAMES.
             if resolve_usernames is True:
-                channel_response["messages"]["user"] = self.get_user_info(channel_response["messages"]["user"])[
-                    "name"]
+                for message in channel_response["messages"]:
+                    message["user"] = self.get_user_info(message["user"])["name"]
 
             # Return response as a dict.
-            return channel_response
+            return channel_response["messages"]
 
         # Exception handling.
         raise SlackAPIError("Could not find the channel specified.")
@@ -72,7 +72,7 @@ class SlackQueryClient(SlackBase):
             raise SlackAPIError(response["error"])
 
         # Return messages as a dict.
-        return response["messages"]
+        return response["channels"]
 
     def get_channel_info(self, req_channel, **params):
         """

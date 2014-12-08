@@ -1,5 +1,7 @@
 pyslaquery
 ==========
+[![PyPI version](https://badge.fury.io/py/pyslaquery.svg)](http://badge.fury.io/py/pyslaquery)
+
 A really simple wrapper around Slack API, for querying information from Slack channels and users.
 
 
